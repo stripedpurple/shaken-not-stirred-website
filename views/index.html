@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero is-grey-darker is-fullheight">
+    <div class="hero-head"></div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <img src="/images/landing/logo-lg.png" alt="logo">
+        </div>
+    </div>
+    <div class="hero-foot"></div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Here at Shaken Not Stirred Photography</h1>
+        <p class="subtitle">We are a collective of photographers dedicated to capturing those moments you care most
+            about.</p>
+    </div>
+</section>
+
+<section class="section has-background-primary call-to-action">
+    <div class="container has-text-centered">
+        <br>
+        <br>
+        <p class="title is-size-2 has-text-white">Come to our free Head Shot event</p>
+        <a class="button is-warning is-large" href="http://eepurl.com/gdZF2P" target="_blank">Join the mailing list!</a>
+        <br>
+        <br>
+    </div>
+</section>
+
+<section class="section has-background-white-bis">
+    <div class="container">
+        <h1 class="title is-3">Stay in touch</h1>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Your name!">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="Your email!">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="What can we do for you?"></textarea>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary"><i class="fas fa-paper-plane"></i>&nbsp;&nbsp;Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <ul>
+                    <li><i class="fas fa-lg fa-fw fa-map-marker"></i>&nbsp;&nbsp;Central Pennsylvania</li>
+                    <li>&nbsp;</li>
+                    <li><i class="fas fa-lg fa-fw fa-phone"></i>&nbsp;&nbsp; 123.456.7890</li>
+                    <li>&nbsp;</li>
+                    <li><a class="has-text-grey-dark" href="mailto:hello@shakennotstirred.photos" target="_blank"><i class="fas fa-lg fa-fw fa-envelope"></i>&nbsp;&nbsp;hello@shakennotstirred.photos</a></li>
+                </ul>
+
+                <!--<br><br>-->
+
+                <hr>
+                <p><span class="has-text-weight-bold">Follow us on</span>
+                <a href="//www.instagram.com/shakennotstirredphoto/" target="_blank"><i class="fab fa-lg fa-fw fa-instagram"></i></a>
+                <a href="//fb.me/shakennotstiredphoto/" target="_blank"><i class="fab fa-lg fa-fw fa-facebook"></i></a>
+                <a href="//m.me/shakennotstiredphoto/" target="_blank"><i class="fab fa-lg fa-fw fa-facebook-messenger"></i></a>
+                <a href="mailto:hello@shakennotstirred.photos" target="_blank"><i class="fas fa-lg fa-fw fa-envelope"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block css %}
+{{ super() }}
+<style>
+    .hero {
+        background: #222 url("/images/landing/hero.jpg") center center no-repeat;
+        background-size: cover;
+    }
+
+    .call-to-action {
+        background: #222 url("/images/landing/calltoaction.jpg") center center no-repeat;
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+{% endblock %}
