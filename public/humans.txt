@@ -1,0 +1,14 @@
+/* TEAM */
+Your title: Austin Barrett Lead Developer and Designer
+Site: austin@stripedpurple.io, http://stripedpurple.io
+Twitter: @_stripedpurple
+Instagram: @stripedpurple
+Github: https://github.com/viruscmd
+Location: Harrisburg, PA
+
+
+/* SITE */
+Last update: always
+Standards: HTML5, CSS3, SASS, Nunjucks
+Components: jQuery, bulma, fontawesome
+Software: InteliJ

@@ -5,11 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var nunjucks = require('nunjucks');
+var compression = require('compression');
+var minifyHTML = require('express-minify-html');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +35,20 @@ app.use(sassMiddleware({
     sourceMap: true,
     outputStyle: 'compressed',
     force: true
+}));
+
+app.use(minifyHTML({
+    override: true,
+    exception_url: false,
+    htmlMinifier: {
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        removeEmptyAttributes: true,
+        minifyJS: true,
+        minifyCSS: true
+    }
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
