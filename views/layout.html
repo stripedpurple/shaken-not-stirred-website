@@ -3,6 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dedicated to capturing those moments you care most about.">
+    <meta name="author" content="Austin Barrett">
+    <link type="text/plain" rel="author" href="/humans.txt">
+
+    <!-- SEO -->
+    <meta name="keywords"
+          content="Photos, photos, Photo, photo, Photography, photography, cental pennsylvania, central pa, harrisburg, harrisburg pa, mechanicsburg, mechanicsburg pa, york, york pa, lancaster, lancaster pa, pennsylvania, pa, shaken not stirred">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/png" href="/images/favicon/favicon.png">
+
+    <!-- Facebook SEO + open graph -->
+    <meta property="og:site_name" content="Shaken Not Stirred Photography">
+    <meta property="og:url" content="http://shakennotstirred.photos">
+    <meta property="og:title" content="Dedicated to capturing those moments you care most about.">
+    <meta property="og:description" content="Dedicated to capturing those moments you care most about.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="/images/meta/social-preview.jpg">
+    <!-- Android Chrome toolbar color -->
+    <meta name="theme-color" content="#222222">
 
     <title>{% if title %}{{title}} | {% endif %} Shake Not Stirred Photography</title>
 
@@ -11,22 +37,34 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     {% endblock %}
 
+    <!--[if lt IE 10]>
+    <style type="text/css">
+        #old-browser-nag {
+            display: block !important;
+        }
+    </style>
+    <![endif]-->
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-    {% block content %}
-    {% endblock %}
+<div id="old-browser-nag">
+    It seems that your browser is not compatible with the website.
+</div>
+{% block content %}
+{% endblock %}
 
 
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                Designed by <a href="://stripedpurple.io">Striped Purple</a> | Shaken Not Stirred Photography &copy;{{year}}. All Rights Reserved
-            </p>
-        </div>
-    </footer>
-    {% block js %}
-    {% endblock %}
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            Designed by <a href="://stripedpurple.io">Striped Purple</a> | Shaken Not Stirred Photography &copy;{{year}}.
+            All Rights Reserved
+        </p>
+    </div>
+</footer>
+{% block js %}
+{% endblock %}
 </body>
 </html>
