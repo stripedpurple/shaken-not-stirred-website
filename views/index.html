@@ -15,23 +15,16 @@
     <div class="hero-foot"></div>
 </section>
 
-
 <section class="section">
-    <div class="container">
-        <h1 class="title">Here at Shaken Not Stirred Photography</h1>
-        <p class="subtitle">We are a collective of photographers dedicated to capturing those moments you care most
-            about.</p>
+    <div class="container has-text-centered is-constrained-1024 is-padded">
+        <h1 class="title has-text-weight-normal">Here at Shaken Not Stirred Photography <br>we are <span class="is-uppercase has-text-weight-bold is-italic">dedicated</span> to capturing those moments you care most about.</h1>
     </div>
 </section>
 
 <section class="section has-background-primary call-to-action">
-    <div class="container has-text-centered">
-        <br>
-        <br>
+    <div class="container has-text-centered is-padded">
         <p class="title is-size-2 has-text-white">Come to our free Head Shot event</p>
         <a class="button is-warning is-large" href="http://eepurl.com/gdZF2P" target="_blank">Join the mailing list!</a>
-        <br>
-        <br>
     </div>
 </section>
 
@@ -101,16 +94,13 @@
 {{ super() }}
 <style>
     .hero {
-        background: #222 url("/images/landing/hero.jpg") center center no-repeat;
+        background: #222 url("/images/landing/hero.jpg") center center no-repeat fixed;
         background-size: cover;
-        background-attachment: fixed;
-
     }
 
     .call-to-action {
-        background: #222 url("/images/landing/calltoaction.jpg") center center no-repeat;
+        background: #222 url("/images/landing/calltoaction.jpg") center center no-repeat fixed;
         background-size: cover;
-        background-attachment: fixed;
     }
 </style>
 {% endblock %}
