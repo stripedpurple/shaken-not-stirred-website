@@ -14,7 +14,8 @@
         </div>
     </div>
     <div class="hero-foot has-text-centered">
-         <a class=" has-text-white" href="#call-to-action-banner"><i class="fa fa-angle-double-down fa-3x bounce"></i></a><br><br><br><br>
+        <a class=" has-text-white" href="#call-to-action-banner"><i
+                class="fa fa-angle-double-down fa-3x bounce"></i></a><br><br><br><br>
     </div>
 </section>
 
@@ -132,48 +133,52 @@
 </section>
 
 
-<section class="section has-background-primary bg-canyon has-text-white">
-    <div class="container">
+<section class="section has-background-primary bg-canyon has-text-white" id="contact-us">
+    <div class="container is-constrained-1024 is-padded">
+        <div class="columns">
+            <div class="column">
+                <div class="msg"></div>
+            </div>
+        </div>
         <h1 class="title is-3">Stay in touch</h1>
-
         <div class="columns">
             <div class="column is-two-thirds">
-                <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Your name!">
+                <form id="contact-form">
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="name" id="name" placeholder="Your name!">
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label">Email</label>
-                    <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Your email!">
-                        <span class="icon is-small is-left">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" name="email" id="email" placeholder="Your email!">
+                            <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label">Message</label>
-                    <div class="control">
-                        <textarea class="textarea" placeholder="What can we do for you?"></textarea>
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" name="message" id="message" placeholder="What can we do for you?"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-warning"><i class="fas fa-paper-plane"></i>&nbsp;&nbsp;Send</button>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <input type="button" id="contact-submit" class="button is-warning" value="Say Hello!">
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="column">
                 <ul>
                     <li><i class="fas fa-lg fa-fw fa-map-marker"></i>&nbsp;&nbsp;Central Pennsylvania</li>
-                    <li>&nbsp;</li>
-                    <li><i class="fas fa-lg fa-fw fa-phone"></i>&nbsp;&nbsp; 123.456.7890</li>
                     <li>&nbsp;</li>
                     <li><a class="has-text-white" href="mailto:hello@shakennotstirred.photos" target="_blank"><i
                             class="fas fa-lg fa-fw fa-envelope"></i>&nbsp;&nbsp;hello@shakennotstirred.photos</a></li>
@@ -193,6 +198,7 @@
                             class="fas fa-lg fa-fw fa-envelope"></i></a>
                 </p>
             </div>
+            </form>
         </div>
     </div>
 </section>
@@ -243,19 +249,27 @@
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js"
+        data-dojo-config="usePlainJson: true, isDebug: false"></script>
 
 <script>
     function showMailingPopUp() {
-        require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl": "mc.us20.list-manage.com",
-            "uuid": "291e8cc28afc80cf02211401a",
-            "lid": "cf7584a3e3"}) });
-            document.cookie = "MCPopupClosed=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-            document.cookie = "MCPopupSubscribed=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-            document.cookie = "_AVESTA_ENVIRONMENT`=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        require(["mojo/signup-forms/Loader"], function (L) {
+            L.start({
+                "baseUrl": "mc.us20.list-manage.com",
+                "uuid": "291e8cc28afc80cf02211401a",
+                "lid": "cf7584a3e3"
+            })
+        });
+        document.cookie = "MCPopupClosed=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "MCPopupSubscribed=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "_AVESTA_ENVIRONMENT`=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     };
 
-    document.getElementById("call-to-action").onclick = function() {showMailingPopUp()};
+    document.getElementById("call-to-action").onclick = function () {
+        showMailingPopUp()
+    };
 
     $(document).ready(function () {
         // smooth scrolling
@@ -269,6 +283,31 @@
                 }, 600);
                 event.preventDefault();
             });
+
+        // Contact Us Submit
+        $('#contact-form').submit(function () {
+            return false;
+        });
+
+        $('#contact-submit').click(function () {
+
+            var posting = $.post('/contact', $('#contact-form').serialize());
+
+            posting.done(function (data) {
+                console.log('success', data);
+                $('#contact-us .msg').html('<div class="notification is-success"><button class="delete"></button>Thank you for contacting Shaken Not Stirred?. Someone will contact you shortly!</div>');
+            }).fail(function (err) {
+                console.log(err);
+                $('#contact-us .msg').html('<div class="notification is-danger"><button class="delete"></button>' + err.responseText + '</div>');
+            });
+
+            return false;
+        });
+
+        $(document).on('click', '.notification > button.delete', function () {
+            $(this).parent().addClass('is-hidden');
+            return false;
+        });
     });
 </script>
 
