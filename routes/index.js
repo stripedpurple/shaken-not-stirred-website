@@ -26,6 +26,17 @@ router.get(['/messenger', '/msgr'], function (req, res, next) {
     res.redirect('http://m.me/shakennotstiredphoto/');
 });
 
+router.get(['/contacts/list', '/msgr'], function (req, res, next) {
+    fs.readFile('/opt/dev/data/shakennotstirred.contacts.json', 'utf8', function (err, contacts) {
+        if (err) {
+            res.status(500).send('We encountered an error. Please try again later.')
+        } else {
+            contacts = JSON.parse('[' + contacts.replace(/\n/g, ',').slice(0, -1) + ']');
+            res.render('contacts-list', { contacts: contacts });
+        }
+    });
+});
+
 
 router.post('/contact', (req, res, next) => {
     var info = {};
