@@ -37,6 +37,10 @@ router.get(['/contacts/list', '/msgr'], function (req, res, next) {
     });
 });
 
+router.get('/app/health', function (req, res, next) {
+    res.status(200).send()
+});
+
 
 router.post('/contact', (req, res, next) => {
     var info = {};
