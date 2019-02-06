@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var db = require('level')('/opt/dev/shortendb');
 var nodemailer = require('nodemailer');
 var fs = require('fs');
 var config = require('../lib/config.js');

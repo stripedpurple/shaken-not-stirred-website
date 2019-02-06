@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container is-constrained-1024">
+        <div class="columns">
+            {% for image in images %}
+            <div class="column">
+                <figure class="image is-4by5">
+                    <img src="https://drive.google.com/uc?export=view&id={{images.thumb}}" alt="Headshot">
+                </figure>
+                <a href="https://drive.google.com/uc?export=view&id={{image.full}}" class="button isprimary" download=""><i class="fas fa-download"></i>&nbsp;&nbsp;Download</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block css %}
+{{ super() }}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+{% endblock %}
+
+
+
