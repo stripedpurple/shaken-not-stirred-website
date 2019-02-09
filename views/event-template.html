@@ -4,13 +4,15 @@
 
 <section class="section">
     <div class="container is-constrained-1024">
-        <div class="columns">
+        <h1 class="title is-size-3">{{name}}</h1>
+        <div class="columns is-multiline">
             {% for image in images %}
+            <!--<div class="column is-one-quarter-fullhd is-one-third-desktop is-half-tablet">-->
             <div class="column">
-                <figure class="image is-4by5">
-                    <img src="https://drive.google.com/uc?export=view&id={{images.thumb}}" alt="Headshot">
+                <figure class="image">
+                    <img src="https://drive.google.com/uc?export=view&id={{image.thumb}}" alt="Headshot" style="max-width: 400px; width: 100%">
                 </figure>
-                <a href="https://drive.google.com/uc?export=view&id={{image.full}}" class="button isprimary" download=""><i class="fas fa-download"></i>&nbsp;&nbsp;Download</a>
+                <a href="https://drive.google.com/uc?export=view&id={{image.full}}" class="button is-primary" target="_blank" download=""><i class="fas fa-download"></i>&nbsp;&nbsp;Download</a>
             </div>
             {% endfor %}
         </div>
