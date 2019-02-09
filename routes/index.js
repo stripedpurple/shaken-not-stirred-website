@@ -15,6 +15,10 @@ router.get('/', function (req, res, next) {
     res.render('index');
 });
 
+router.get('/', function (req, res, next) {
+    res.redirect('/gallery/events/20190409');
+});
+
 router.get(['instagram', '/insta'], function (req, res, next) {
     res.redirect('http://www.instagram.com/shakennotstirredphoto');
 });
