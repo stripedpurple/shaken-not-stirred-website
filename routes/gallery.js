@@ -23,7 +23,6 @@ router.get('/gallery/event/:id', function (req, res, next) {
             }
             res.render('event-template', data[0][eventId]);
             client.close();
-            console.log(data[0][eventId]);
         });
     });
 
