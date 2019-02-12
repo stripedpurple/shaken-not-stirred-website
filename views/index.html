@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<section class="hero is-grey-darker is-fullheight">
+<section class="hero is-grey-darker is-fullheight-with-navbar">
     <div class="hero-head"></div>
     <div class="hero-body">
         <div class="container has-text-centered">
@@ -14,10 +14,14 @@
         </div>
     </div>
     <div class="hero-foot has-text-centered">
-        <a class=" has-text-white" href="#call-to-action-banner"><i
+        <a class=" has-text-white" href="#first"><i
                 class="fa fa-angle-double-down fa-3x bounce"></i></a><br><br><br><br>
     </div>
 </section>
+
+<span id="first" class="first"></span>
+
+{% include 'partials/navbar.html' %}
 
 
 <section class="section has-background-primary" id="call-to-action-banner">
@@ -131,79 +135,11 @@
         </div>
     </div>
 </section>
-
-
-<section class="section has-background-primary bg-canyon has-text-white" id="contact-us">
-    <div class="container is-constrained-1024 is-padded">
-        <div class="columns">
-            <div class="column">
-                <div class="msg"></div>
-            </div>
-        </div>
-        <h1 class="title is-3">Stay in touch</h1>
-        <div class="columns">
-            <div class="column is-two-thirds">
-                <form id="contact-form">
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <input class="input" type="text" name="name" id="name" placeholder="Your name!">
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="email" name="email" id="email" placeholder="Your email!">
-                            <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                            <textarea class="textarea" name="message" id="message" placeholder="What can we do for you?"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <input type="button" id="contact-submit" class="button is-warning" value="Say Hello!">
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="column">
-                <ul>
-                    <li><i class="fas fa-lg fa-fw fa-map-marker"></i>&nbsp;&nbsp;Central Pennsylvania</li>
-                    <li>&nbsp;</li>
-                    <li><a class="has-text-white" href="mailto:hello@shakennotstirred.photos" target="_blank"><i
-                            class="fas fa-lg fa-fw fa-envelope"></i>&nbsp;&nbsp;hello@shakennotstirred.photos</a></li>
-                </ul>
-
-                <!--<br><br>-->
-
-                <hr>
-                <p><span class="has-text-weight-bold">Follow us on</span>
-                    <a class="has-text-white" href="//www.instagram.com/shakennotstirredphoto/" target="_blank"><i
-                            class="fab fa-lg fa-fw fa-instagram"></i></a>
-                    <a class="has-text-white" href="//fb.me/shakennotstiredphoto/" target="_blank"><i
-                            class="fab fa-lg fa-fw fa-facebook"></i></a>
-                    <a class="has-text-white" href="//m.me/shakennotstiredphoto/" target="_blank"><i
-                            class="fab fa-lg fa-fw fa-facebook-messenger"></i></a>
-                    <a class="has-text-white" href="mailto:hello@shakennotstirred.photos" target="_blank"><i
-                            class="fas fa-lg fa-fw fa-envelope"></i></a>
-                </p>
-            </div>
-            </form>
-        </div>
-    </div>
-</section>
-
 {% endblock %}
+
+{% block navbar %}{% endblock %}
+
+
 
 {% block css %}
 {{ super() }}
@@ -211,16 +147,6 @@
     .hero {
         background: #222 url("/images/landing/hero.jpg") center center no-repeat fixed;
         background-size: cover;
-    }
-
-    .bg-canyon {
-        background: #222 url("/images/landing/canyon.jpg") center center no-repeat fixed;
-        background-size: cover;
-    }
-
-    .has-text-white h1,
-    .has-text-white label {
-        color: white;
     }
 
     @media screen and (min-width: 768px) {
@@ -244,12 +170,6 @@
 
 {% block js %}
 {{ super() }}
-
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js"
         data-dojo-config="usePlainJson: true, isDebug: false"></script>
 
@@ -270,47 +190,7 @@
     document.getElementById("call-to-action").onclick = function () {
         showMailingPopUp()
     };
-
-    $(document).ready(function () {
-        // smooth scrolling
-        $('a[href*="#"]')
-            .not('[href="#"]')
-            .not('[href="#0"]')
-            .click(function (event) {
-                var $position = $($(this).attr('href')).offset().top;
-                $('html, body').stop().animate({
-                    scrollTop: $position
-                }, 600);
-                event.preventDefault();
-            });
-
-        // Contact Us Submit
-        $('#contact-form').submit(function () {
-            return false;
-        });
-
-        $('#contact-submit').click(function () {
-
-            var posting = $.post('/contact', $('#contact-form').serialize());
-
-            posting.done(function (data) {
-                console.log('success', data);
-                $('#contact-us .msg').html('<div class="notification is-success"><button class="delete"></button>Thank you for contacting Shaken Not Stirred?. Someone will contact you shortly!</div>');
-            }).fail(function (err) {
-                console.log(err);
-                $('#contact-us .msg').html('<div class="notification is-danger"><button class="delete"></button>' + err.responseText + '</div>');
-            });
-
-            return false;
-        });
-
-        $(document).on('click', '.notification > button.delete', function () {
-            $(this).parent().addClass('is-hidden');
-            return false;
-        });
-    });
 </script>
-
 {% endblock %}
 
 

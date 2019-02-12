@@ -3,16 +3,22 @@
 {% block content %}
 
 <section class="section">
-    <div class="container is-constrained-1024">
-        {% for contact in contacts %}
-        <article class="message is-success is-small">
-            <div class="message-body">
-                <p class="title is-size-4">{{contact.name}}</p>
-                <p class="subtitle is-size-5">{{contact.email}}</p>
-                <p>{{contact.message}}</p>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title is-size-4">Headshots at Whitaker Center</h1>
+                <figure class="image is-1x1">
+                    <a href="/gallery/event/20190209"><img src="/images/gallery/whitaker1.jpg" alt="Headshot at Whitaker Center"></a>
+                </figure>
             </div>
-        </article>
-        {% endfor %}
+
+            <div class="column">
+                <h1 class="title is-size-4">Student 5K</h1>
+                <figure class="image is-1x1">
+                    <a href="/gallery/event/20180418"><img src="/images/gallery/5k.jpg" alt="Student 5K"></a>
+                </figure>
+            </div>
+        </div>
     </div>
 </section>
 
