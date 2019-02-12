@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/whitaker1', function (req, res, next) {
-    res.redirect('/gallery/event/20190409');
+    res.redirect('/gallery/event/20190209');
 });
 
 router.get(['instagram', '/insta'], function (req, res, next) {
