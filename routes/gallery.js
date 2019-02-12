@@ -18,8 +18,10 @@ router.get('/gallery/event/:id', function (req, res, next) {
         var db = client.db(dbName);
         var collection = db.collection('event');
         collection.find(queryStr).toArray(function (err, data) {
-            if (err){
-                res.send('Error:\n' + err);
+            if (err || data.length < 1){
+                res.status(404);
+                res.render('error');
+                return
             }
             res.render('event-template', data[0][eventId]);
             client.close();
