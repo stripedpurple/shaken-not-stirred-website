@@ -9,7 +9,9 @@
             {% for image in images %}
             <div class="column has-text-centered is-one-quarter-fullhd is-one-third-desktop is-half-tablet">
                 <div class="image is-5by3" style="background: white url('https://drive.google.com/uc?export=view&id={{image.thumb}}') center center no-repeat; background-size: cover">
-                    <a href="https://drive.google.com/uc?export=view&id={{image.full}}" class="button is-primary" download="" target="_blank"><i class="fas fa-download"></i></a>
+                    {% if download %}
+                    <a href="https://drive.google.com/uc?export=download&id={{image.full}}" class="button is-primary" download="" target="_blank"><i class="fas fa-download"></i></a>
+                    {% endif %}
                     <a href="https://drive.google.com/uc?export=view&id={{image.full}}" class="button is-primary magnify"><i class="fas fa-search-plus"></i></a>
                 </div>
             </div>
