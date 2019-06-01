@@ -41,6 +41,10 @@ router.get(['/contacts/list', '/msgr'], function (req, res, next) {
     });
 });
 
+router.get('/prints/adultprom2019', (req, res, next) => {
+    res.redirect('https://snsphotos.darkroom.tech/')
+});
+
 router.get('/app/health', function (req, res, next) {
     res.status(200).send()
 });
